@@ -1,0 +1,4 @@
+% FILE CONTENENTE COSTANTI UNIVERSALI
+G= 6.67408e-11 %[s^-2*kg^-1*m^3]
+c=2.99792458e8	%[m/s]
+sigma= 5.670373e-8 %[W/(m^2*K^4)]

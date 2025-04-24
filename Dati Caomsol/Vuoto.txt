@@ -1,0 +1,11 @@
+% Model:              Box_wing_Wings.mph
+% Version:            COMSOL 6.0.0.405
+% Date:               Nov 3 2022, 18:55
+% Dimension:          3
+% Nodes:              252
+% Elements:           256
+% Expressions:        1
+% Description:        Material settings
+% Length unit:        m
+% Coordinates
+

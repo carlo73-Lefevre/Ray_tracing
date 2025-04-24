@@ -1,0 +1,21 @@
+% EARTH PARAMETERS in SI
+MT=5.974e24	     % Earth mass [kg]
+RT=6.378206e6;   % Earth ray [m]
+d=8e22           % Earth magnetic moment [A/m^2] B*RT^3
+D=11		     % Earth magnetic axis inclination [degree]
+B=30e3;		     % Earth magnetic field [T]
+teta_m=11.44/180*pi;  % colatitude magnetic pole (radiant) 1985
+alfa_m=-70.9/180*pi;  % longitude magnetic pole (radiant) 1985
+rot=7.2921152e-5;     % rotation angular velocity (rad/s)
+Rir=6407920           % infrared ray (m)
+Wir=223          	  % Earth infrared exitance  
+%
+% SUN PARAMETER in SI
+MS=1.9888e30                % Sun mass [kg]
+RS=6.96e8 			        % Sun ray [m]
+CS=1360.8						%  solar constant at 1 UA[W/(m^2)]
+% 
+UA=149597870691 			% astronomic unit [m]
+ae=23.43929111;             % ecliptic inclination (degree)
+Sol_y=365.25;               % mean year [days]
+Sol_y_s=365.25*86400;       % mean year [s]

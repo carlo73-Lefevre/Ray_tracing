@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archive>
+  <model>
+    <material tag="mat2" type="Common" component="">
+      <propertyGroup tag="Enu" descr="Young's modulus and Poisson's ratio">
+        <set name="E" value="69e9[Pa]"/>
+        <set name="nu" value="0.33"/>
+      </propertyGroup>
+      <label label="Aluminum 6063-T83"/>
+      <set name="family" value="aluminum"/>
+      <propertyGroup tag="def">
+        <set name="relpermeability" value="{'1','0','0','0','1','0','0','0','1'}"/>
+        <set name="electricconductivity" value="{'3.030e7[S/m]','0','0','0','3.030e7[S/m]','0','0','0','3.030e7[S/m]'}"/>
+        <set name="thermalexpansioncoefficient" value="{'23.4e-6[1/K]','0','0','0','23.4e-6[1/K]','0','0','0','23.4e-6[1/K]'}"/>
+        <set name="heatcapacity" value="900[J/(kg*K)]"/>
+        <set name="relpermittivity" value="{'1','0','0','0','1','0','0','0','1'}"/>
+        <set name="density" value="2700[kg/m^3]"/>
+        <set name="thermalconductivity" value="{'201[W/(m*K)]','0','0','0','201[W/(m*K)]','0','0','0','201[W/(m*K)]'}"/>
+      </propertyGroup>
+    </material>
+    <material tag="mat9" type="Common" component="">
+      <label label="Material Not"/>
+      <propertyGroup tag="def">
+        <set name="emissivity" value="0"/>
+        <set name="surfacereflectivity" value="0"/>
+        <set name="surfacetransmissivity" value="0"/>
+      </propertyGroup>
+    </material>
+    <material tag="mat3" type="Common" component="">
+      <label label="Ligth Blue"/>
+      <set name="family" value="aluminum"/>
+      <propertyGroup tag="def">
+        <set name="emissivity" value="eps_LightBlue"/>
+        <set name="surfacereflectivity" value="rho_LightBlue"/>
+        <set name="surfacetransmissivity" value="alfaLightBlue"/>
+      </propertyGroup>
+    </material>
+    <material tag="mat4" type="Common" component="">
+      <label label="Light Green"/>
+      <propertyGroup tag="def">
+        <set name="emissivity" value="eps_LightGreen"/>
+        <set name="surfacereflectivity" value="rho_LightGreen"/>
+        <set name="surfacetransmissivity" value="alfaLightGreen"/>
+      </propertyGroup>
+    </material>
+    <material tag="mat5" type="Common" component="">
+      <label label="Yellow"/>
+      <set name="family" value="aluminum"/>
+      <propertyGroup tag="def">
+        <set name="emissivity" value="eps_Yellow"/>
+        <set name="surfacereflectivity" value="rho_Yellow"/>
+        <set name="surfacetransmissivity" value="alfaYellow"/>
+      </propertyGroup>
+    </material>
+    <material tag="mat6" type="Common" component="">
+      <label label="Red"/>
+      <propertyGroup tag="def">
+        <set name="emissivity" value="eps_Red"/>
+        <set name="surfacereflectivity" value="rho_Red"/>
+        <set name="surfacetransmissivity" value="alfaRed"/>
+      </propertyGroup>
+    </material>
+    <material tag="mat7" type="Common" component="">
+      <label label="Cyan"/>
+      <propertyGroup tag="def">
+        <set name="emissivity" value="eps_Cyan"/>
+        <set name="surfacereflectivity" value="rho_Cyan"/>
+        <set name="surfacetransmissivity" value="alfaCyan"/>
+      </propertyGroup>
+    </material>
+    <material tag="mat8" type="Common" component="">
+      <label label="Purple"/>
+      <propertyGroup tag="def">
+        <set name="emissivity" value="eps_Purple"/>
+        <set name="surfacereflectivity" value="rho_Purple"/>
+        <set name="surfacetransmissivity" value="alfaPurple"/>
+      </propertyGroup>
+    </material>
+    <material tag="mat10" type="Common" component="">
+      <label label="Dark Blue"/>
+      <propertyGroup tag="def">
+        <set name="emissivity" value="eps_DarkBlue"/>
+        <set name="surfacereflectivity" value="rho_DarkBlue"/>
+        <set name="surfacetransmissivity" value="alfaDarkBlue"/>
+      </propertyGroup>
+    </material>
+  </model>
+</archive>
+
