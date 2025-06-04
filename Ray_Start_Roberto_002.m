@@ -13,13 +13,16 @@
 clear;clc;
 close all;
 
-% path= 'C:\Users\carlo\OneDrive - INAF - Istituto Nazionale di Astrofisica\G4S\Matlab_ray';
-path = 'C:\Users\Carlo\OneDrive - INAF - Istituto Nazionale di Astrofisica\G4S\Matlab_ray\';
+% Load project directories from configuration
+if ~exist('settings','var') || ~isstruct(settings)
+    settings = project_settings();
+end
+path = settings.root;
 
 addpath(path);
-addpath([path,'\Funzioni\'])
-addpath([path,'\Dati Caomsol\'])
-addpath([path,'\Class\'])
+addpath(settings.functions)
+addpath(settings.data)
+addpath(settings.class)
 
 
 % Import material file
@@ -77,15 +80,15 @@ ray   = c_Rays();
 video = 'off';
 
 if strcmp(video,'on')
-    path_dave = ('C:\Users\Carlo\OneDrive - INAF - Istituto Nazionale di Astrofisica\G4S\Matlab_ray\Results\');
+    path_dave = settings.results;
     v = VideoWriter([path_dave,'G4s_BOX_W_vero.mp4'],'MPEG-4');
     open(v);
 end
 
 %%
 %  t_launch = utc2mjd([2014 08 22 12 27 00]));   % effemeridi iniziali di E18
-addpath('C:\Users\Carlo\OneDrive - INAF - Istituto Nazionale di Astrofisica\G4S\Box_wing\Confronto Box Wing Surf Surf_Visco\Script di Confronto\Massimo_risultati');
-path_save = 'C:\Users\Carlo\OneDrive - INAF - Istituto Nazionale di Astrofisica\G4S\Matlab_ray\Results\';
+addpath(settings.boxWingResults);
+path_save = settings.results;
 
 deltaT = dminutes * 1/24/60;
 % days   = 0.1;
@@ -94,7 +97,7 @@ deltaT = dminutes * 1/24/60;
 init_Cond = Generazione_coordinate_Satellite_sole('E18' ...
     ,deltaT,days) % (satellite,dt,day_long)
 
-file_SUN = dir(['C:\Users\carlo\OneDrive - INAF - Istituto Nazionale di Astrofisica\G4S\Matlab_ray\Results\','Sun_Body_dir*'])
+file_SUN = dir(fullfile(settings.results,'Sun_Body_dir*'))
 
 load([path_save,file_SUN(end).name]);
 
@@ -283,7 +286,7 @@ currentHour = datestr(now, 'HHMMSS');
 % Combina la data e l'ora per formare il nome del file
 fileName = sprintf([Sat_inp.Box ,'.mat']);
 % Ora puoi salvare i tuoi dati utilizzando questo nome del file
-pat_res = 'C:\Users\carlo\OneDrive - INAF - Istituto Nazionale di Astrofisica\G4S\Matlab_ray\Results\';
+pat_res = settings.results;
 
 % save([pat_res,fileName], 'ACC','SRP_body','Sat_b','ray_b');
 ora = datestr(now,'mmmm_dd_yyyy_ HH_MM_SS');
@@ -539,7 +542,7 @@ function save_data_geodine(desc,t,SRP_ECI,nomefile,Note)
 % ...
 % <tempo_iso_n> <acc_x_n> <acc_y_n> <acc_z_n>
 
-path_save = 'C:\Users\carlo\OneDrive - INAF - Istituto Nazionale di Astrofisica\G4S\Matlab_ray\Results\';
+path_save = settings.results;
 File_n = join(strrep([desc{1,1},'_',nomefile,'.acc_est.asc'],' ', ''));
 Filename = join([path_save,File_n]);  
 
@@ -627,7 +630,7 @@ function save_data_geodine_quatrnion(desc,t,ACC,nomefile,Note)
 % #              tempo_iso - Tempo del campione nel formato ISO (e.g. 2001-01-01T00:00:00.000)
 % #              q_1, q_2, q_3, q_4 - Componenti del quaternione assetto
 
-path_save = 'C:\Users\Carlo\OneDrive - INAF - Istituto Nazionale di Astrofisica\G4S\Matlab_ray\Results\';
+path_save = settings.results;
 File_n = [desc{1,1},'_',nomefile,'.att_est.asc'];
 Filename = [path_save,File_n];
 

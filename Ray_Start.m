@@ -13,13 +13,16 @@
 clear;clc;
 % close all;
 
-% path= 'C:\Users\carlo\OneDrive - INAF - Istituto Nazionale di Astrofisica\G4S\Matlab_ray';
-path = 'D:\OneDrive - INAF - Istituto Nazionale di Astrofisica\G4S\Matlab_ray';
+% Load project directories from configuration
+if ~exist('settings','var') || ~isstruct(settings)
+    settings = project_settings();
+end
+path = settings.root;
 
 addpath(path);
-addpath([path,'\Funzioni\'])
-addpath([path,'\Dati Caomsol\'])
-addpath([path,'\Class\'])
+addpath(settings.functions)
+addpath(settings.data)
+addpath(settings.class)
 
 tic
 % Import material file
@@ -89,7 +92,7 @@ ray   = c_Rays();
 video = 'off';
 
 if strcmp(video,'on')
-    path_dave = ('D:\OneDrive - INAF - Istituto Nazionale di Astrofisica\G4S\Matlab_ray\');
+    path_dave = settings.results;
     v = VideoWriter([path_dave,'G4s_BOX_W_vero.mp4'],'MPEG-4');
     open(v);
 end
